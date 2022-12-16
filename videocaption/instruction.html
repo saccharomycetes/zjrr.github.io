@@ -10,31 +10,46 @@
           when you publish a batch with a CSV input file containing multiple image file URLs.
           To preview the element with an example image, try setting the src attribute to
           "https://s3.amazonaws.com/cv-demo-images/basketball-outdoor.jpg" -->
-    <h2 class="text-center">Deatiled instructions:</h2>
-    <p>In each example, you are given a video in a traffic scene. After detailedly watching the video, you are asked
-        to describe the whole procedure of the video, following 3 questions.</p>
+    <br>
+    <h2 class="text-center">Detailed instructions:</h2>
+    <h4 class="text-center">Annotation Procedure</h4>
     <ul>
-        <li><strong>Do not use pronounce. (In every sentence, you should use "the car", "the vehicle" rather than
+        <li><strong>In each example, you are given a video in a traffic scene. (see example below)</strong></li>
+        <li><strong>Carefully watch the video.</strong></li>
+        <li><strong>Then you are given 3 questions, which ask you about the initial scene, detailed movement, and the final scene of the video.</strong></li>
+        <li><strong>Follow the question to give a detailed description of the video.</strong></li>
+    </ul>
+    <h4 class="text-center">Key Advices</h4>
+    <ul>
+        <li><strong>Include as many relavant participants as possible. (Including the pedestrians, vehicles, traffic lights)</strong></li>
+        <li><strong>Include as many relavant environments as possible. (Including the traffic situation nearby, )</strong></li>
+        <li><strong>Include as many details of movements in the video as possible. </strong></li>
+        <li><strong>Try to use specific names. Rather than "the car", you should use "The SUV, the sedan, the tricycle(see in example).</strong></li>
+
+        <li><strong><font color="#FF0000">Do not</font> use pronoun. (In every sentence, you should use "the car", "the vehicle" rather than
                 "it")</strong></li>
-        <li><strong>Do not use negative sentences. (Rather than "the car does not move", you should say "the car
+        <li><strong><font color="#FF0000">Do not</font> use negative sentences. (Rather than "the car does not move", you should say "the car
                 stays still.")</strong></li>
-        <li><strong>Include as much participants as possible.</strong></li>
     </ul>
 
-    <strong>Example:</strong>
-    <p></p><video width="640" height="480" controls>
+    <h4 class="text-center">Example</h4>
+    <strong>Target Video:</strong>
+    <p><video width="640" height="480" controls>
         <source src="https://jrzhang.s3.amazonaws.com/b_1ya4y1e7Tn_clip_047.mp4" type="video/mp4">
     </video></p>
 
     <strong>Question and example answers:</strong>
-    <br><strong>1.Describe the initial scene (at sec 0):</strong>
-    <br>The tricycle is driving on a curved down hill.
+    <br><strong>1.Use 1-2 sentences to describe the initial scene (at sec 0):</strong>
+    <br>The tricycle is driving on a curved down hill. (use specific name "tricycle", include relevant environment "curved down hill")
+    <br>The speed of tricycle is very fast. (include the detail of the initial motion)
     <br><strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
-    <br>The tricycle’s speed is very fast.
     <br>The tricycle is steering right following the curved road.
-    <br>The tricycle lost its balance then hit the fence of the road.
+    <br>The tricycle lost its balance.
+    <br>The triclcye hit the fence of the road.
     <br><strong>3.Describe the last scene (consequence, epilogue)</strong>
     <br>The tricycle rollovered on its side.
+    <br><br><br><br>
+
 
 
     </crowd-form>
