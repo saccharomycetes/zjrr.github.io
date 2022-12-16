@@ -35,38 +35,5 @@
     <br><strong>3.Describe the last scene (consequence, epilogue)</strong>
     <br>The tricycle  rollovered on its side.
     
-    <br><br><strong>Target video:</strong>
-          
-    <p><video width="640" height="480" controls>
-    <source src=${video_url} type="video/mp4">
-    </video></p>
-    <h2>Instructions:</h2>
-    <p>Given a video, answer three questions based on it.</p>
-        <ul>
-            <li><strong>Do not use pronounce.(In every sentence, you should use "the car", "the vehicle" rather than "it")</strong></li>
-            <li><strong>Do not use negative sentences. (Rather than "the car does not move", you should say "the car stays still.")</strong></li>
-            <li><strong>Include as much participants as possible.</strong></li>
-        </ul>
-    
-    <strong>1.Describe the initial scene (at sec 0):</strong>
-    <crowd-input label="Description 1" max-length="25" name="tag1" required></crowd-input>
-    <strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
-    <crowd-input label="Description 2, Sentence 1" max-length="25" name="tag2" required></crowd-input>
-    <crowd-input label="Description 2, Sentence 2" max-length="25" name="tag3" required></crowd-input>
-    <crowd-input label="Description 2, Sentence 3" max-length="25" name="tag4" required></crowd-input>
-    <strong>3.Describe the last scene (consequence, epilogue)</strong>
-    <crowd-input label="Description 3" max-length="25" name="tag5" required></crowd-input>
-    
-    
-    <full-instructions header="Does this image contain the object of interest?">
-        <h2>Detailed instructions</h2>
-        <p>Instructions of video captioning.</p>
-        After carefully watching the video, you are asked to describe the whole procedure of the video, following 3 questions.
-        <ol>
-        <li>In each example, you are given a video in a traffic scene.</li>
-        <li>Watch the video carefully and think about the entities and motions appeared in the video.</li>
-        <li>Write down the detailed descriptions in </li>
-        </ol>
-    </full-instructions>
 
 </crowd-form>
