@@ -16,8 +16,159 @@
           when you publish a batch with a CSV input file containing multiple image file URLs.
           To preview the element with an example image, try setting the src attribute to
           "https://s3.amazonaws.com/cv-demo-images/basketball-outdoor.jpg" -->
+
+
+    <div id="box">
+        <div id="content">
+            <strong>  Full instruction</strong>
+            <button id="btn">Click to extend</button>
+            <div id="spread">
+                <div class="container">
     
-    <h2 class="text-center">Target Video:</h2>
+    
+                    <!-- Your image file URLs will be substituted for the "image_url" variable below 
+                          when you publish a batch with a CSV input file containing multiple image file URLs.
+                          To preview the element with an example image, try setting the src attribute to
+                          "https://s3.amazonaws.com/cv-demo-images/basketball-outdoor.jpg" -->
+                    <br>
+                    <!--<h2 class="text-center">Detailed instructions</h2>-->
+                    <h3 class="text-center">Task instructions</h3>
+                    <ul>
+                        <li><strong>In each example, you are given a video in a traffic scene.</strong></li>
+                        <li><strong>Carefully watch the video.</strong></li>
+                        <li><strong>Then you are given 3 questions, which ask you about the initial scene, detailed movement, and the final scene of the video.</strong></li>
+                        <li><strong>Follow the question to give a detailed description of the video.</strong></li>
+                    </ul>
+                    
+                
+                    <h3 class="text-center">Example</h3>
+                    <strong>Target Video:</strong>
+                    <p><video width="720" height="540" controls>
+                        <source src="https://jrzhang.s3.amazonaws.com/b_1ya4y1e7Tn_clip_047.mp4" type="video/mp4">
+                    </video></p>
+                
+                    <strong>Question and example answers:</strong>
+                    <br><strong>1.Use 1-2 sentences to describe the initial scene (at sec 0):</strong>
+                    <br>The tricycle is driving on a curved down hill.
+                    <br>The speed of tricycle is very fast. 
+                    <br><strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
+                    <br>The tricycle is steering right following the curved road.
+                    <br>The tricycle lost its balance.
+                    <br>The triclcye hit the fence of the road.
+                    <br><strong>3.Use 1-2 sentences to describe the last scene</strong>
+                    <br>The tricycle rollovered on its side.
+                    
+                    <h3 class="text-center">Tips</h3>
+                    <ul>
+                        <li><strong>Include all important participants in the video. (Including the pedestrians, vehicles, traffic lights)</strong></li>
+                        <li><strong>Include as many details of movements in the video as possible. </strong></li>
+                        <li><strong>Try to use specific names. Rather than "the car", you should use "The SUV, the sedan, the tricycle."</strong></li>
+                
+                        <li><strong><font color="#FF0000">Do not</font> use pronouns. (In every sentence, you should repharse the participants rather than "it")</strong></li>
+                        <li><strong><font color="#FF0000">Do not</font> use negative sentences. (Rather than "the car does not move", you should say "the car
+                                stays still.")</strong></li>
+                    </ul>
+                    
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #222222;
+        }
+        #box{
+            width: 1200px;
+            margin: 10px;
+        }
+        #content{
+            background-color: #b3dae9;
+            border-radius: 8px;
+            box-shadow: 1px 1px 1px #ccc;
+            border:1px solid #EEEEEE;
+        }
+        h4{
+            font-size: 16px;
+        }
+        h4,p{
+            padding: 10px 0;
+        }
+        #btn{
+            width: 160px;
+            border:none;
+            background-color: #b3dae9;
+        }
+        #spread{
+            height: 0px;
+            overflow: hidden;
+        }
+    </style>
+
+    <script>
+        /*获得btn*/
+        var btn = document.getElementById('btn')
+        var spread = document.getElementById('spread')
+        var iSpread = false
+        /*高度*/
+        var height = spread.scrollHeight
+        /*总时间*/
+        var time = 420;
+        /*间隔*/
+        var interval = 8.4
+        /*速度*/
+        var speed = height/(time/interval)
+        /*点击事件*/
+        btn.onclick = function (e) {
+            btn.disabled = 'disabled'
+            if(!iSpread){
+                var speeds = 0
+                var timer = setInterval(function () {
+                    speeds += speed
+                    spread.style.height = speeds + 'px'
+
+                    if(parseInt(spread.style.height) >=height){
+                        clearTimeout(timer)
+                        btn.disabled = ''
+                    }
+                },interval)
+                this.innerHTML = 'Click to collapse'
+            }else {
+                var speeds = height
+                this.innerHTML = 'Click to Extend'
+                var timer = setInterval(function () {
+                    speeds -= speed
+                    spread.style.height = speeds + 'px'
+                    if(speeds <= 0){
+                        clearTimeout(timer)
+                        btn.disabled = ''
+                    }
+                },interval)
+            }
+            iSpread = !iSpread
+        }
+
+    </script>
+    
+    <h2 class="text-center">Introduction:</h2>
+    
+    <p>Our goal is to study human descriptions of traffic videos. 
+    Please describe three aspects about each video: 
+    its initial scene, what happens in the video, and its final scene. 
+    Make sure your answers are precise and concise. 
+    A simple way to write the answers is to focus on the participants appeared in the video 
+    and describe their motions together with the relevant environmental objects. </p>
+    
+    <p><font color="#FF0000">If this is the first time you accept this HIT, it's highly recommanded to check detailed instructions and tips, by clicking the "click to extend"↑  before labeling..</font></p>
+    
+    <h6 class="text-center">Please watch the following video:</h6>
           
     <p><video width="640" height="480" controls>
     <source src=${video_url} type="video/mp4">
@@ -25,73 +176,12 @@
     
     <h2 class="text-center">Questions:</h2>
     
-    <strong>1.Use 1-2 sentences to describe the initial scene (at sec 0):</strong>
-    <crowd-input label="Description 1, Sentence 1" max-length="25" name="tag1" required></crowd-input>
-    <crowd-input label="Description 1, Sentence 2" max-length="25" name="tag2" required></crowd-input>
+    <strong>1.Use 1-2 sentences to describe the initial scene (at the 0-th second):</strong>
+    <crowd-input label="Type description here" max-length="150" name="tag1" required></crowd-input>
     <strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
-    <crowd-input label="Description 2, Sentence 1" max-length="25" name="tag3" required></crowd-input>
-    <crowd-input label="Description 2, Sentence 2" max-length="25" name="tag4" required></crowd-input>
-    <crowd-input label="Description 2, Sentence 3" max-length="25" name="tag5" required></crowd-input>
-    <strong>3.Describe the last scene (consequence)</strong>
-    <crowd-input label="Description 3" max-length="25" name="tag6" required></crowd-input>
-    
-    
-    <short-instructions>
-        <p>In each example, you are given a video in a traffic scene. </p>
-        <p>After carefully watching the video, you are asked to describe the whole procedure of the video, following 3 questions.</p>
-    </short-instructions>
-    
-    <full-instructions>
-        <div class="container">
-    
-    
-        <!-- Your image file URLs will be substituted for the "image_url" variable below 
-              when you publish a batch with a CSV input file containing multiple image file URLs.
-              To preview the element with an example image, try setting the src attribute to
-              "https://s3.amazonaws.com/cv-demo-images/basketball-outdoor.jpg" -->
-        <br>
-        <!--<h2 class="text-center">Detailed instructions</h2>-->
-        <h4 class="text-center">Task instructions</h4>
-        <ul>
-            <li><strong>In each example, you are given a video in a traffic scene.</strong></li>
-            <li><strong>Carefully watch the video.</strong></li>
-            <li><strong>Then you are given 3 questions, which ask you about the initial scene, detailed movement, and the final scene of the video.</strong></li>
-            <li><strong>Follow the question to give a detailed description of the video.</strong></li>
-        </ul>
-        
-    
-        <h4 class="text-center">Example</h4>
-        <strong>Target Video:</strong>
-        <p><video width="480" height="360" controls>
-            <source src="https://jrzhang.s3.amazonaws.com/b_1ya4y1e7Tn_clip_047.mp4" type="video/mp4">
-        </video></p>
-    
-        <strong>Question and example answers:</strong>
-        <br><strong>1.Use 1-2 sentences to describe the initial scene (at sec 0):</strong>
-        <br>The tricycle is driving on a curved down hill.
-        <br>The speed of tricycle is very fast. 
-        <br><strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
-        <br>The tricycle is steering right following the curved road.
-        <br>The tricycle lost its balance.
-        <br>The triclcye hit the fence of the road.
-        <br><strong>3.Describe the last scene (consequence, epilogue)</strong>
-        <br>The tricycle rollovered on its side.
-        
-        <h4 class="text-center">Tips</h4>
-        <ul>
-            <li><strong>Include all important participants in the video. (Including the pedestrians, vehicles, traffic lights)</strong></li>
-            <li><strong>Include as many details of movements in the video as possible. </strong></li>
-            <li><strong>Try to use specific names. Rather than "the car", you should use "The SUV, the sedan, the tricycle."</strong></li>
-    
-            <li><strong><font color="#FF0000">Do not</font> use pronouns. (In every sentence, you should repharse the participants rather than "it")</strong></li>
-            <li><strong><font color="#FF0000">Do not</font> use negative sentences. (Rather than "the car does not move", you should say "the car
-                    stays still.")</strong></li>
-        </ul>
-        
-        <br><br>
-    </div>
-    </full-instructions>
-    
+    <crowd-input label="Type description here" max-length="150" name="tag3" required></crowd-input>
+    <strong>3.Use 1-2 sentences to describe the last scene </strong>
+    <crowd-input label="Type description here" max-length="150" name="tag6" required></crowd-input>
 
 </crowd-form>
 </div>
