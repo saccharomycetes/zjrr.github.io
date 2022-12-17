@@ -9,7 +9,6 @@
       please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
 
 <!-- You must include crowd-form so that your task submits answers to MTurk -->
-<crowd-form answer-format="flatten-objects">
 
 
     <!-- Your image file URLs will be substituted for the "image_url" variable below 
@@ -113,19 +112,13 @@
     </style>
 
     <script>
-        /*获得btn*/
         var btn = document.getElementById('btn')
         var spread = document.getElementById('spread')
         var iSpread = false
-        /*高度*/
         var height = spread.scrollHeight
-        /*总时间*/
         var time = 420;
-        /*间隔*/
         var interval = 8.4
-        /*速度*/
         var speed = height/(time/interval)
-        /*点击事件*/
         btn.onclick = function (e) {
             btn.disabled = 'disabled'
             if(!iSpread){
@@ -157,6 +150,7 @@
 
     </script>
     
+    <crowd-form answer-format="flatten-objects">
     <h2 class="text-center">Introduction:</h2>
     
     <p>Our goal is to study human descriptions of traffic videos. 
@@ -182,6 +176,7 @@
     <crowd-input label="Type description here" max-length="150" name="tag3" required></crowd-input>
     <strong>3.Use 1-2 sentences to describe the last scene </strong>
     <crowd-input label="Type description here" max-length="150" name="tag6" required></crowd-input>
+    
 
 </crowd-form>
 </div>
