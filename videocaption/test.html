@@ -40,7 +40,7 @@
                     </ul>
                     
                 
-                    <h3 class="text-center">Example1</h3>
+                    <h3 class="text-center">Example1 (one vehicle only)</h3>
                     <strong>Target Video:</strong>
                     <p><video width="720" height="540" controls>
                         <source src="https://jrzhang.s3.amazonaws.com/b_1ya4y1e7Tn_clip_047.mp4" type="video/mp4">
@@ -49,14 +49,17 @@
                     <strong>Question and example answers:</strong>
                     <br><strong>1.Use 1-2 sentences to describe the initial scene (at the 0-th second):</strong>
                     <br>The tricycle is driving on a curved down hill. The speed of tricycle is very fast. 
-                    <br><strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
+                    <br><strong>2.Use 2-3 sentences to describe what happened in the video</strong>
                     <br>The tricycle is steering right following the curved road.
                     The tricycle lost its balance.
                     The triclcye hit the fence of the road.
                     <br><strong>3.Use 1-2 sentences to describe the last scene</strong>
                     <br>The tricycle rollovered on its side.
+                    <br><strong>4.List all traffic participants involved in your description, separated by commas.</strong>
+                    <br>tricycle
                     
-                    <h3 class="text-center">Example2</h3>
+                    
+                    <h3 class="text-center">Example2 (two vehicles invovled)</h3>
                     <strong>Target Video:</strong>
                     <p><video width="720" height="540" controls>
                         <source src="https://jrzhang.s3.amazonaws.com/b_1At411i75B_clip_003.mp4" type="video/mp4">
@@ -65,10 +68,44 @@
                     <strong>Question and example answers:</strong>
                     <br><strong>1.Use 1-2 sentences to describe the initial scene (at the 0-th second):</strong>
                     <br>A white sedan is moving forward through an intersection. Another golden sedan is crossing the intersection.
-                    <br><strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
+                    <br><strong>2.Use 2-3 sentences to describe what happened in the video</strong>
                     <br>The golden sedan quickly passes the road. The white sedan keeps moving ahead.
                     <br><strong>3.Use 1-2 sentences to describe the last scene</strong>
                     <br>The white sedan hits the side of the golden sedan.
+                    <br><strong>4.List all traffic participants involved in your description, separated by commas.</strong>
+                    <br>white sedan, golden sedan
+                    
+                    <h3 class="text-center">Example3 (multiple vehicles invovled)</h3>
+                    <strong>Target Video:</strong>
+                    <p><video width="720" height="540" controls>
+                        <source src="https://jrzhang.s3.amazonaws.com/b_1bJ411x7an_clip_041.mp4" type="video/mp4">
+                    </video></p>
+                
+                    <strong>Question and example answers:</strong>
+                    <br><strong>1.Use 1-2 sentences to describe the initial scene (at the 0-th second):</strong>
+                    <br>A car is driving very fast on the road. A red sedan is driving in the right side with a same speed.
+                    <br><strong>2.Use 2-3 sentences to describe what happened in the video</strong>
+                    <br>A white SUV is waiting on the left side to merge to the main road. A white sedan behind the white SUV moves directly into the road. The car wants to dodge the white sedan and moves right.
+                    <br><strong>3.Use 1-2 sentences to describe the last scene</strong>
+                    <br>The car hit the red sedan in the right side.
+                    <br><strong>4.List all traffic participants involved in your description, separated by commas.</strong>
+                    <br>white SUV, white sedan, red sedan
+                
+                    <h3 class="text-center">Example4 (traffic light and people included)</h3>
+                    <strong>Target Video:</strong>
+                    <p><video width="720" height="540" controls>
+                        <source src="https://jrzhang.s3.amazonaws.com/b_1hE411k7re_clip_010.mp4" type="video/mp4">
+                    </video></p>
+                
+                    <strong>Question and example answers:</strong>
+                    <br><strong>1.Use 1-2 sentences to describe the initial scene (at the 0-th second):</strong>
+                    <br>The traffic light is turning green. A woman riding a electric bicycle moves fast across the sidewalk.
+                    <br><strong>2.Use 2-3 sentences to describe what happened in the video</strong>
+                    <br>The white sedan on the left starts to accelerate. The white sedan hits the woman corssing the sidewalk.
+                    <br><strong>3.Use 1-2 sentences to describe the last scene</strong>
+                    <br>The woman with her electric bicycle rollovered on her side.
+                    <br><strong>4.List all traffic participants involved in your description, separated by commas.</strong>
+                    <br>woman riding electric bicycle, white sedan
                     
                     <h3 class="text-center">Tips</h3>
                     <ul>
@@ -165,7 +202,7 @@
     
     <crowd-form answer-format="flatten-objects">
     
-    <p>Welcome! Our goal is to study human descriptions of traffic videos. 
+    <p>Welcome! Our goal is to collect human descriptions of traffic videos. 
     Please describe three aspects about each video: 
     its initial scene, what happens in the video, and its final scene. 
     Make sure your answers are precise and concise. 
@@ -174,20 +211,22 @@
     
     <p><font color="#FF0000">If this is the first time you accept this HIT, please check the detailed instructions above, by clicking "click to expand"↑ before labeling.</font></p>
     
-    <h6 class="text-center">Please watch the following video:</h6>
+    <h6>Please watch the following video:</h6>
           
     <p><video width="640" height="480" controls>
-    <source src="https://jrzhang.s3.amazonaws.com/chosen_videos/b_11x411i7ms_part1_clip_008.mp4" type="video/mp4">
+    <source src=${video_url} type="video/mp4">
     </video></p>
     
-    <h2 class="text-center">Questions:</h2>
+    <h3>Questions:</h3>
     
     <strong>1.Use 1-2 sentences to describe the initial scene (at the 0-th second):</strong>
     <crowd-input label="Type description here" max-length="500" name="tag1" required></crowd-input>
-    <strong>2.Use 2-3 sentences to describe what happened in the video (motion by motion)</strong>
+    <strong>2.Use 2-3 sentences to describe what happened in the video</strong>
     <crowd-input label="Type description here" max-length="500" name="tag2" required></crowd-input>
     <strong>3.Use 1-2 sentences to describe the last scene </strong>
     <crowd-input label="Type description here" max-length="500" name="tag3" required></crowd-input>
+    <br><strong>4.List all traffic participants involved in your description, separated by commas.</strong>
+    <crowd-input label="Type entities here, separated by commas" max-length="500" name="tag4" required></crowd-input>
     
 
 </crowd-form>
